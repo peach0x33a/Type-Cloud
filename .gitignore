@@ -6,7 +6,9 @@ dist
 *.log
 coverage
 client-pc
-README.md
-AGENTS.md
 logs/
 data/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
