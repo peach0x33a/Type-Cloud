@@ -6,13 +6,14 @@ Wants=network-online.target ydotoold.service
 [Service]
 Type=simple
 User=peach0x33a
-WorkingDirectory=/home/peach0x33a/source/repos/node/type-cloud/client
-Environment="SERVER_URL=http://localhost:3000"
+WorkingDirectory=/home/peach0x33a/source/repos/python/type-cloud/client
+Environment="SERVER_URL=http://cu-zb-h1.mihari.top:17923"
 Environment="PASTE_METHOD=auto"
 Environment="WAYLAND_DISPLAY=wayland-0"
 Environment="XDG_RUNTIME_DIR=/run/user/1000"
+Environment="PYTHONUNBUFFERED=1"
 # Point to the python executable in the virtual environment directly
-ExecStart=/home/peach0x33a/source/repos/node/type-cloud/venv/bin/python /home/peach0x33a/source/repos/node/type-cloud/client/index.py
+ExecStart=/home/peach0x33a/source/repos/python/type-cloud/venv/bin/python /home/peach0x33a/source/repos/python/type-cloud/client/index.py
 
 Restart=always
 RestartSec=10
