@@ -120,4 +120,6 @@ python verify_parity.py
 
 ## 📜 License
 
-MIT License
+MIT License.
+
+**Note:** This is a pure Vibe Coding project, built for personal convenience. PRs are not accepted.
