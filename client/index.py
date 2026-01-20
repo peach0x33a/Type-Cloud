@@ -12,6 +12,17 @@ sio = socketio.Client()
 
 def check_tools():
     """Verify required tools are installed"""
+    # Check XDG_RUNTIME_DIR for Wayland
+    if not os.getenv("XDG_RUNTIME_DIR"):
+        # Fallback to default user runtime dir
+        uid = os.getuid()
+        runtime_dir = f"/run/user/{uid}"
+        if os.path.exists(runtime_dir):
+            os.environ["XDG_RUNTIME_DIR"] = runtime_dir
+            print(f"Set XDG_RUNTIME_DIR to {runtime_dir}")
+        else:
+            print("Warning: XDG_RUNTIME_DIR is not set. Wayland tools might fail.")
+
     tools = ["wl-copy", "ydotool", "xdotool", "kdotool"]
     missing = []
     for tool in tools:
