@@ -1,0 +1,11 @@
+# .dockerignore
+node_modules
+dist
+.git
+.env
+.DS_Store
+*.log
+coverage
+client-pc
+README.md
+AGENTS.md

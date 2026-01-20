@@ -1,0 +1,14 @@
+version: '3'
+services:
+  type-cloud:
+    build: .
+    image: type-cloud:latest
+    container_name: type-cloud
+    ports:
+      - "3000:3000"
+    environment:
+      - JWT_SECRET=default-secret
+      - PASSWORD=123456
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

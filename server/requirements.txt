@@ -1,0 +1,9 @@
+flask
+flask-socketio
+flask-cors
+pyjwt
+bcrypt
+eventlet
+python-dotenv
+python-socketio[client]
+requests
