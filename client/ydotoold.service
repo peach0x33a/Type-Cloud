@@ -6,6 +6,7 @@ After=network.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/ydotoold
+ExecStartPost=/bin/sh -c 'while [ ! -S /tmp/.ydotool_socket ]; do sleep 0.1; done; chgrp input /tmp/.ydotool_socket && chmod 660 /tmp/.ydotool_socket'
 Restart=always
 RestartSec=3
 
