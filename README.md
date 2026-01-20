@@ -1,10 +1,14 @@
 # ☁️ Type Cloud
 
+**Note:** This is a pure Vibe Coding project, built for personal convenience. PRs are not accepted.
+
 > **跨设备实时云剪贴板 & 远程输入控制系统**
 >
 > 手机打字，电脑上屏。支持 Wayland/X11，智能终端识别，Web 远程控制。
 
 Type Cloud 是一个现代化的文本中继系统，允许你在手机上输入文本，并实时粘贴到电脑的当前活动窗口中。它不仅是剪贴板同步，更是一个远程键盘，支持退格、回车和光标控制。
+
+实际上只是因为豆包输入法太好用了而我又懒得折腾 Linux + fcitx5 上的语音输入，而什么蓝牙虚拟键盘只支持按键模拟，KDEConnect在我这并不好用。所以抽鞭子让AI写了一个
 
 ---
 
@@ -122,4 +126,4 @@ python verify_parity.py
 
 MIT License.
 
-**Note:** This is a pure Vibe Coding project, built for personal convenience. PRs are not accepted.
+
