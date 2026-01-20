@@ -125,6 +125,7 @@ def simulate_paste():
             ["ydotool", "key"] + keys,
             capture_output=True,
             text=True,
+            env={**os.environ, "YDOTOOL_SOCKET": "/tmp/.ydotool_socket"},
         )
         if result.returncode != 0:
             print(f"ydotool failed: {result.stderr}")
@@ -192,7 +193,11 @@ def handle_command(action):
                 print("Sending Clear All (Ctrl+A, Backspace)...")
 
         if keys:
-            subprocess.run(["ydotool", "key"] + keys, check=True)
+            subprocess.run(
+                ["ydotool", "key"] + keys,
+                check=True,
+                env={**os.environ, "YDOTOOL_SOCKET": "/tmp/.ydotool_socket"},
+            )
             print(f"Command '{action}' executed")
     except Exception as e:
         print(f"Command execution error: {e}")
