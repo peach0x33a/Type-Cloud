@@ -1,0 +1,19 @@
+[Unit]
+Description=Type Cloud Client Service
+After=network.target network-online.target ydotoold.service
+Wants=network-online.target ydotoold.service
+
+[Service]
+Type=simple
+User=peach0x33a
+WorkingDirectory=/home/peach0x33a/source/repos/node/type-cloud/client
+Environment="SERVER_URL=http://localhost:3000"
+Environment="PASTE_METHOD=auto"
+# Point to the python executable in the virtual environment directly
+ExecStart=/home/peach0x33a/source/repos/node/type-cloud/venv/bin/python /home/peach0x33a/source/repos/node/type-cloud/client/index.py
+
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

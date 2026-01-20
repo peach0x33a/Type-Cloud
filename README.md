@@ -122,6 +122,38 @@ python verify_parity.py
 
 ---
 
+## 🤖 自动启动 (Systemd)
+
+为了方便日常使用，提供了 Systemd 服务配置，支持开机自启。
+
+1.  **安装服务**:
+    ```bash
+    # 安装 ydotoold 服务 (系统级，解决权限问题)
+    sudo cp client/ydotoold.service /etc/systemd/system/
+    
+    # 安装 Type Cloud 客户端服务
+    # 注意：需修改 type-cloud.service 中的 User, WorkingDirectory 和 SERVER_URL
+    sudo cp client/type-cloud.service /etc/systemd/system/
+    ```
+
+2.  **配置与启动**:
+    ```bash
+    sudo systemctl daemon-reload
+    
+    # 启动底层输入服务
+    sudo systemctl enable --now ydotoold.service
+    
+    # 启动客户端
+    sudo systemctl enable --now type-cloud.service
+    ```
+
+3.  **检查状态**:
+    ```bash
+    systemctl status type-cloud.service
+    ```
+
+---
+
 ## 📜 License
 
 MIT License.
