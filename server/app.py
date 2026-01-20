@@ -241,4 +241,4 @@ if __name__ == "__main__":
     # The start.sh ran WS on 8080 and Nuxt on 3000.
     # I will combine them on port 3000 (like Nuxt) or 8080?
     # Let's run on 3000 and update PC client to connect to 3000.
-    socketio.run(app, host="0.0.0.0", port=3000, debug=True)
+    socketio.run(app, host="0.0.0.0", port=3000, debug=False)

@@ -25,7 +25,10 @@ type-cloud/
 │   ├── requirements.txt  # Backend dependencies
 │   └── verify_parity.py  # Test script
 ├── client/
-│   └── index.py          # PC Client logic
+│   ├── index.py          # PC Client logic
+│   ├── run.sh            # Client launch script
+│   ├── type-cloud.service # Systemd user service
+│   └── ydotoold.service   # Systemd system service
 ├── start.sh              # One-click startup script
 ├── README.md             # User documentation
 └── AGENTS.md             # This developer guide
@@ -56,7 +59,7 @@ export PASTE_METHOD="ctrl+v" # or "ctrl+shift+v"
 python client/index.py
 ```
 
-### Testing
+### Testing & Verification
 There is a verification script to test the full flow (Login -> Send -> Broadcast).
 ```bash
 # Run parity verification
@@ -122,6 +125,14 @@ flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
   - `PASSWORD`: `123456`
   - `JWT_SECRET`: `default-secret`
   - `SERVER_URL`: `http://localhost:3000`
-  - `PASTE_METHOD`: `ctrl+v` (can be `ctrl+shift+v` for terminal)
+  - `PASTE_METHOD`: `auto` (can be `ctrl+v` or `ctrl+shift+v`)
+  - `PASTE_DELAY`: `0.5` (seconds to wait before simulating paste)
+
+## Systemd Integration
+For persistent deployment, systemd unit files are provided in `client/`:
+- `ydotoold.service`: System-level daemon for input simulation (requires root).
+- `type-cloud.service`: User-level client service.
+
+When modifying these, ensure paths in `ExecStart` match the deployment environment.
 
 This document serves as the definitive guide for the Python Flask version of Type Cloud.
